@@ -1,0 +1,25 @@
+{
+  "name": "micro-ohm-meter-app",
+  "version": "1.0.0",
+  "private": true,
+  "main": "expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "build:apk": "eas build --platform android --profile preview",
+    "build:dev-apk": "eas build --platform android --profile development"
+  },
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "expo": "^55.0.0",
+    "expo-dev-client": "^6.0.0",
+    "react": "^19.1.0",
+    "react-native": "^0.82.0",
+    "react-native-ble-plx": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/base-64": "^1.0.2",
+    "@types/react": "^19.1.0",
+    "typescript": "^5.9.0"
+  }
+}
