@@ -12,9 +12,9 @@
   "dependencies": {
     "base-64": "^1.0.0",
     "expo": "^55.0.0",
-    "expo-dev-client": "^6.0.0",
-    "react": "^19.1.0",
-    "react-native": "^0.82.0",
+    "expo-dev-client": "~55.0.35",
+    "react": "19.2.0",
+    "react-native": "0.83.6",
     "react-native-ble-plx": "^3.5.0"
   },
   "devDependencies": {
