@@ -47,16 +47,23 @@ npm run build:apk
 
 La app acumula fragmentos BLE hasta encontrar `}`, decodifica base64, parsea el JSON y muestra las mediciones en pantalla.
 
+## Sketches del ESP32
+
+El proyecto incluye dos sketches para el ESP32:
+
+- `CodigoESP/CodigoESP.ino`: firmware principal para usar con el circuito real, el ADS1115 y la etapa analogica.
+- `simulacionPCBEsp/simulacionPCBEsp.ino`: firmware de simulacion para probar la app usando solo el ESP32 y un celular Android.
+
 ## Experimento sin PCB
 
-El firmware incluye `SIMULATION_MODE = true` para probar la app usando solo el ESP32 y un celular Android. En este modo el ESP32 no depende del circuito analogico ni del ADS1115: envia una secuencia de resistencias simuladas entre 0 mOhm y 1000 mOhm, calcula un voltaje ADC coherente con la ecuacion de calibracion y simula variables de bateria.
+El sketch `simulacionPCBEsp/simulacionPCBEsp.ino` incluye `SIMULATION_MODE = true`. En este modo el ESP32 no depende del circuito analogico ni del ADS1115: envia una secuencia de resistencias simuladas entre 0 mOhm y 1000 mOhm, calcula un voltaje ADC coherente con la ecuacion de calibracion y simula variables de bateria.
 
 Tambien se dejo `SIMULATE_FRAGMENTED_BLE = true`, que divide cada JSON en dos notificaciones BLE. Esto permite comprobar que la app reconstruye correctamente los fragmentos antes de parsear el JSON.
 
 Pasos:
 
 ```text
-1. Cargar CodigoESP/CodigoESP.ino en el ESP32.
+1. Cargar simulacionPCBEsp/simulacionPCBEsp.ino en el ESP32.
 2. Encender Bluetooth y ubicacion en el celular Android.
 3. Instalar y abrir MicroOhmMeter-preview.apk.
 4. Aceptar permisos.
@@ -65,4 +72,4 @@ Pasos:
 7. Observar la secuencia simulada de mediciones en las tarjetas.
 ```
 
-Para volver a usar el hardware real, cambiar `SIMULATION_MODE` a `false`.
+Para volver a usar el hardware real, cargar `CodigoESP/CodigoESP.ino` en el ESP32.
